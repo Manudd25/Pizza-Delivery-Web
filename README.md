@@ -1,7 +1,8 @@
-🍕 ##Slice & Dice - Pizza Delivery Web App
+🍕 Slice & Dice - Pizza Delivery Web App
+
 Slice & Dice is a user-friendly and visually appealing web app designed for seamless online pizza ordering. This app allows customers to explore a variety of delicious pizzas, customize their orders, and complete their purchase effortlessly.
 
-##Features
+Features
 
 Interactive Menu:
 
@@ -36,8 +37,4 @@ Frontend: React.js for dynamic UI and responsive components.
 State Management: Context API for managing cart items and delivery details.
 Styling: CSS for a polished, modern interface.
 Deployment: Hosted on GitHub Pages for easy access.
-
-
-
-
 
