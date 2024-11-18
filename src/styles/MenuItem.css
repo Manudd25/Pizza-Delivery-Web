@@ -1,0 +1,104 @@
+/* Main card container */
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menuItem:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+/* Image section */
+.menuImage {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* Content section */
+.menuItemContent {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 70%;
+}
+
+/* Title and price */
+.menuItemTitle {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.menuItemDescription {
+  font-size: 18px;
+  margin: 10px 0 10px;
+  color: #333;
+}
+
+.menuItemPrice {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 15px; /* Ensures spacing before quantity controls */
+}
+
+/* Quantity controls */
+.quantityControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.quantityControls button {
+  background: #f39c12;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quantityControls button:hover {
+  background-color: #e67e22;
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.quantity {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  min-width: 30px; 
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .menuItem {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

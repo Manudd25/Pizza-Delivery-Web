@@ -1,0 +1,38 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  height: 80vh;
+}
+
+.menuTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 42px;
+  text-align: center;
+  color: #333;
+}
+
+.menuList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px;
+  justify-items: center; 
+  width: 100%;
+  padding: 0 20px;
+}
+
+.proceedBtn {
+  position: relative;
+  bottom: 40%;
+  padding: 10px 20px;
+  margin-right: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}

@@ -1,0 +1,228 @@
+/* General Styles */
+.checkoutPage {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Full page height */
+  width: 100vw; /* Full page width */
+  box-sizing: border-box;
+}
+
+.checkoutTitle {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Main Content */
+.checkoutContent {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 30px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1500px;
+  flex-grow: 1;
+}
+
+/* Order Summary Section */
+.orderSummary {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 40px;
+  background-color: #f9f9f9;
+  flex: 1;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.orderSummary h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.orderItemDetails h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.orderItemDetails p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.orderItemTotal {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.orderTotal {
+  text-align: right;
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Delivery Details Section */
+.deliveryDetails {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 40px;
+  flex: 1;
+  min-width: 300px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.deliveryDetails h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.deliveryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.formGroup input {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.formGroup input::placeholder {
+  font-weight: normal;
+  color: #aaa;
+}
+
+/* Buttons */
+.checkoutActions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.placeOrderButton,
+.goBackButton,
+.bacHomeBtn {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.placeOrderButton:hover,
+.goBackButton:hover,
+.bacHomeBtn:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+.placeOrderButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.goBackButton {
+  margin-top: 2rem;
+  position: relative;
+  left: 0%;
+  margin: 2rem;
+
+}
+
+.bacHomeBtn {
+  margin-top: 2rem;
+  position: relative;
+}
+
+/* Empty Cart Message */
+.checkoutEmptyMessage {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+}
+
+/* Thank You Page */
+.thankYouPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  min-height: 80vh; /* Full page height */
+  width: 100vw; /* Full page width */
+}
+
+.thankYouPage h1,
+.thankYouPage h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.thankYouImage {
+  width: 400px;
+  height: auto;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .checkoutContent {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .orderSummary,
+  .deliveryDetails {
+    padding: 20px;
+  }
+
+  .placeOrderButton,
+  .goBackButton {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .thankYouImage {
+    width: 300px;
+  }
+}
