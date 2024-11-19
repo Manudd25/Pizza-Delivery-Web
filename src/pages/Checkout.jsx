@@ -1,23 +1,32 @@
-import { useCart } from "../Contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import delivery from "../assets/delivery.gif";
 import "../styles/Checkout.css";
 
 function Checkout() {
-  const { cartItems, updateCart } = useCart();
+  const { clearCart } = useCart();
   const navigate = useNavigate();
   const [orderSubmitted, setOrderSubmitted] = useState(false); // State to track form submission
 
+  // Retrieve cart items from localStorage
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  // Calculate the total price including extras for each item
   const calculateTotal = () => {
-    return cartItems
-      .reduce((total, item) => total + item.price * item.quantity, 0)
-      .toFixed(2);
+    return cartItems.reduce((total, item) => {
+      const pizzaTotal = item.price * item.quantity;
+      const extrasTotal = item.selectedExtras.reduce(
+        (sum, extra) => sum + extra.price * item.quantity, // multiply each extra by quantity
+        0
+      );
+      return total + pizzaTotal + extrasTotal;
+    }, 0).toFixed(2); // Return the final total with two decimal places
   };
 
   const handlePlaceOrder = () => {
     setOrderSubmitted(true); // Set order as submitted
-    updateCart({}, "clear"); // clear cart
+    clearCart(); // Clear cart and reset count
   };
 
   if (orderSubmitted) {
@@ -57,15 +66,14 @@ function Checkout() {
                       <p>
                         €{item.price.toFixed(2)} x {item.quantity}
                       </p>
-                      {item.ingredients && item.ingredients.length > 0 && (
+                      {item.selectedExtras && item.selectedExtras.length > 0 && (
                         <p>
-                          <strong>Ingredients:</strong>{" "}
-                          {item.ingredients.join(", ")}
-                          {item.customIngredient && (
-                            <>
-                              , <em>{item.customIngredient}</em>
-                            </>
-                          )}
+                          <strong>Extras:</strong>{" "}
+                          {item.selectedExtras.map((extra, idx) => (
+                            <span key={idx}>
+                              {typeof extra === 'string' ? extra : extra.name} (+€{extra.price.toFixed(2)})
+                            </span>
+                          ))}
                         </p>
                       )}
                     </div>
@@ -76,7 +84,7 @@ function Checkout() {
                 ))}
               </div>
               <div className="orderTotal">
-                <h3>Total: €{calculateTotal()}</h3>
+                <h3>Total: €{calculateTotal()}</h3> {/* Show the total price */}
               </div>
             </>
           ) : (
@@ -121,7 +129,7 @@ function Checkout() {
 
       {/* Place Order and Go Back Buttons */}
       <div className="checkoutActions">
-        <button className="goBackButton" onClick={() => navigate("/cart")}>
+        <button className="goBackButton" onClick={() => navigate("/menu")}>
           Go Back
         </button>
         <button

@@ -22,6 +22,14 @@ export const MenuList = [
     image: Salami,
     price: 10.99,
     description: "ingredients: tomato sauce, salami, mozzarella cheese",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   { 
     id: 2,
@@ -29,6 +37,15 @@ export const MenuList = [
     image: Margherita,
     price: 11.99,
     description: "ingredients: tomato sauce, mozzarella cheese, basil",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+     
+    ]
   },
   {
     id: 3,
@@ -36,6 +53,14 @@ export const MenuList = [
     image: Housespecial,
     price: 15.50,
     description: "ingredients: tomato sauce, cheese, oregano",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 4,
@@ -43,6 +68,14 @@ export const MenuList = [
     image: Vegan,
     price: 12.99,
     description: "ingredients: tomato sauce, mozzarella cheese, corn, basil, fresh tomatoes, balsamic vinegar",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
 
   },
   {
@@ -51,6 +84,14 @@ export const MenuList = [
     image: Rucola,
     price: 4.99,
     description: "ingredients: tomato sauce, mozzarella cheese, rucola",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
 
   },
   {
@@ -59,6 +100,14 @@ export const MenuList = [
     image: Expensive,
     price: 22.99,
     description: "ingredients: tomato sauce, mozzarella cheese, smoked salmon, caviar",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 7,
@@ -66,6 +115,14 @@ export const MenuList = [
     image: Olive,
     price: 10.99,
     description: "ingredients: tomato sauce, mozzarella cheese, fresh tomatoes, green olives",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 8,
@@ -73,6 +130,14 @@ export const MenuList = [
     image: HotSalami,
     price: 11.99,
     description: "ingredients: tomato sauce, mozzarella cheese, salami, black olives",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 9, 
@@ -80,6 +145,14 @@ export const MenuList = [
     image: Diavola,
     price: 10.53,
     description: "ingredients: tomato sauce, mozzarella cheese, hot salami, capers",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 10,
@@ -87,6 +160,14 @@ export const MenuList = [
     image: Marinara,
     price: 9.99,
     description: "ingredients: tomato sauce, oregano",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 11,
@@ -94,6 +175,14 @@ export const MenuList = [
     image: Spinach,
     price: 4.99,
     description: "ingredients: tomato sauce, oregano, spinach, fresh mozzarella cheese",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 12,
@@ -101,6 +190,14 @@ export const MenuList = [
     image: Tomatoes,
     price: 10.99,
     description: "ingredients: basil, fresh tomatoes, fresh mozzarella cheese",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 13,
@@ -108,6 +205,14 @@ export const MenuList = [
     image: Mozzarella,
     price: 11.99,
     description: "ingredients: basil, tomato sauce, fresh mozzarella cheese",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 14,
@@ -115,6 +220,14 @@ export const MenuList = [
     image: Mushroom,
     price: 10.99,
     description: "ingredients: basil, tomato sauce, mozzarella cheese, mushrooms",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 15,
@@ -122,6 +235,14 @@ export const MenuList = [
     image: Cheese,
     price: 11.99,
     description: "ingredients: basil, tomato sauce, mozzarella cheese, Parmesan cheese, Gorgonzola cheese, Fontina cheese",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
   {
     id: 16,
@@ -129,5 +250,13 @@ export const MenuList = [
     image: Ham,
     price: 11.99,
     description: "ingredients: tomato sauce, mozzarella cheese, ham, mushrooms",
+    extras: [
+      { name: "Cheese", price: 1.5 },
+      { name: "Salami", price: 2.0 },
+      { name: "Mushrooms", price: 1.2 },
+      { name: "Olives", price: 1.0 },
+      { name: "Ham", price: 2.5 },
+      { name: "Mozzarella", price: 1.8 },
+    ]
   },
 ];

@@ -1,0 +1,221 @@
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Show modal when open */
+.modalOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Content */
+.modalContent {
+  background: #fff;
+  width: 450px;
+  max-height: 90%;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: modalAppear 0.5s ease-out;
+}
+
+/* Close button */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #f39c12;
+}
+
+/* Title */
+.modalTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Pizza Image */
+.pizzaImageContainer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pizzaImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Description */
+.modalDescription {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Price */
+.modalPrice {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f39c12;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Extras */
+.extrasTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.extrasList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.extraItem {
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.extraItem label {
+  display: flex;
+  align-items: center;
+  gap: 15px;  /* Space between checkbox and ingredient name */
+}
+
+.extraItem span {
+  margin-left: 10px;  /* Space between checkbox and price */
+}
+
+.extraPrice {
+  font-size: 14px;
+  color: #f39c12;
+}
+
+/* Custom Ingredient Input */
+.customIngredientInput {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.customIngredientInput:focus {
+  border-color: #f39c12;
+  outline: none;
+}
+
+/* Quantity Control Section */
+.quantityControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Space between the buttons */
+  margin-top: 20px; /* Space from other elements */
+}
+
+/* Button Style for + and - */
+.quantityButton {
+  background-color: #f39c12; /* Gold background for buttons */
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quantityButton:hover {
+  background-color: #e67e22; /* Darker gold on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.quantityButton:disabled {
+  background-color: #dcdcdc; /* Disabled button with a light gray */
+  cursor: not-allowed; /* Prevent clicks when disabled */
+}
+
+/* Quantity number display */
+.quantityDisplay {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Dark text for better contrast */
+  margin: 10px; /* Add spacing on the sides */
+  width: 30px; /* Set a fixed width to align the buttons */
+  text-align: center; /* Center the quantity text */
+}
+
+/* Add to Cart Button */
+.addToCartButton {
+  background-color: #f39c12;
+  color: white;
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;  /* Increased space from quantity buttons */
+}
+
+.addToCartButton:hover {
+  background-color: #e67e22;
+}
+
+/* Animation for modal appearing */
+@keyframes modalAppear {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

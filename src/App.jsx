@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -6,50 +5,58 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Cart from "./components/Cart";
+import CartModal from "./components/CartModal";
 import Checkout from "./pages/Checkout";
-import "./index.css";
+import PizzaModal from "./components/PizzaModal";
+import { useState } from "react";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [selectedPizza, setSelectedPizza] = useState(null); // Track the selected pizza
+  const [isModalOpen, setIsModalOpen] = useState(false); // Track whether the pizza modal is open or not
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false); // Track whether the cart modal is open or not
 
-  const updateCart = (updatedItem) => {
-    setCartItems((prevCartItems) => {
-      if (updatedItem.quantity === 0) {
-        // Remove item if quantity is 0
-        return prevCartItems.filter((item) => item.id !== updatedItem.id);
-      }
-
-      const existingItem = prevCartItems.find(
-        (item) => item.id === updatedItem.id
-      );
-
-      if (existingItem) {
-        // Update quantity for existing item
-        return prevCartItems.map((item) =>
-          item.id === updatedItem.id ? updatedItem : item
-        );
-      }
-
-      // Add new item
-      return [...prevCartItems, updatedItem];
-    });
+  const openModal = (pizza) => {
+    setSelectedPizza(pizza); // Set the selected pizza
+    setIsModalOpen(true); // Open the pizza modal
   };
 
-  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const closeModal = () => {
+    setSelectedPizza(null); // Clear the selected pizza
+    setIsModalOpen(false); // Close the pizza modal
+  };
+
+  const openCartModal = () => {
+    setIsCartModalOpen(true); // Open the cart modal
+  };
+
+  const closeCartModal = () => {
+    setIsCartModalOpen(false); // Close the cart modal
+  };
 
   return (
     <BrowserRouter>
-      <Navbar cartCount={cartCount} />
+      <Navbar openCartModal={openCartModal} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu updateCart={updateCart} />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
-        <Route path="/checkout" element={<Checkout />} />
+      <Route
+          path="/"
+          element={<Home />} />
+        <Route
+          path="/menu"
+          element={<Menu openModal={openModal} />} // Pass openModal to Menu
+        />
+        <Route
+          path="/cart"
+          element={<CartModal isOpen={isCartModalOpen} closeModal={closeCartModal} />}
+        />
+        <Route
+          path="/checkout"
+          element={<Checkout closeCartModal={closeCartModal} />} // Pass closeCartModal to Checkout
+        />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <PizzaModal pizza={selectedPizza} isOpen={isModalOpen} closeModal={closeModal} /> {/* Make sure to pass the correct state */}
     </BrowserRouter>
   );
 }

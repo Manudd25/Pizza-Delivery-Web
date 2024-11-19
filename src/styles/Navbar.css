@@ -1,3 +1,4 @@
+/* Base navbar styles */
 .navbar {
   width: 100%;
   background-color: #121619;
@@ -31,6 +32,7 @@ a:hover {
   display: none;
 }
 
+/* Right side container for cart and hamburger icon */
 .rightSide {
   display: flex;
   align-items: center;
@@ -44,15 +46,16 @@ a:hover {
 }
 
 .cartContainer {
-  position: relative; 
+  position: relative;
 }
 
 .cartIcon {
   color: white;
   font-size: 24px;
   cursor: pointer;
-  margin-right: 2rem;
-  margin-bottom: 1.5rem;
+  margin-right: 1.8rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
 }
 
 .cartIcon:hover {
@@ -63,22 +66,22 @@ a:hover {
   position: absolute !important;
   top: 25px !important;
   right: 13px !important;
-  background-color: black !important; 
-  color: white !important; 
+  background-color: black !important;
+  color: white !important;
   border-radius: 50% !important;
-  width: 20px !important; 
-  height: 20px !important; 
+  width: 20px !important;
+  height: 20px !important;
   display: flex !important;
   justify-content: center !important;
-  align-items: center !important; 
-  font-size: 12px !important; 
-  font-weight: bold !important; 
-  border: 2px solid white; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  align-items: center !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cartCount:empty {
-  display: none; 
+  display: none;
 }
 
 .rightSide button {
@@ -88,11 +91,115 @@ a:hover {
   cursor: pointer;
 }
 
+/* Navbar toggle button for mobile */
 .navbarToggle {
   background-color: transparent;
   border: none;
   color: white;
   font-size: 24px;
   cursor: pointer;
-  display: none; 
+  display: none; /* Hidden by default */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  /* Hide the left side menu links by default */
+  .leftSide {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 20px;
+  }
+
+  /* Display the hamburger icon */
+  .hamburgerIcon {
+    display: block;
+  }
+
+  /* Toggle the visibility of menu when clicked */
+  .leftSide.open {
+    display: flex;
+  }
+
+  /* Ensure the cart icon is aligned correctly */
+  .rightSide {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .cartIcon {
+    margin-right: 20px;
+  }
+
+  /* Style for the hamburger icon */
+  .hamburgerIcon {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Hide the cart button when on mobile */
+  .cartContainer {
+    display: none;
+  }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  /* Hide the left side menu links by default */
+  .leftSide {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 20px;
+  }
+
+  /* Add margin-left for a links in mobile view */
+  .leftSide a {
+    margin-left: 16rem;
+  }
+
+  /* Display the hamburger icon */
+  .hamburgerIcon {
+    display: block;
+  }
+
+  /* Toggle the visibility of menu when clicked */
+  .leftSide.open {
+    display: flex;
+  }
+
+  /* Ensure the cart icon is aligned correctly */
+  .rightSide {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .cartIcon {
+    margin-right: 20px;
+  }
+
+  /* Style for the hamburger icon */
+  .hamburgerIcon {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Hide the cart button when on mobile */
+  .cartContainer {
+    display: none;
+  }
+}
+
+.cartContainer {
+  display: flex; /* Ensure it remains visible */
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cartIcon {
+  margin-right: 10px; /* Adjust spacing if needed */
 }

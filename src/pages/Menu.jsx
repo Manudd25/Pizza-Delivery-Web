@@ -1,10 +1,8 @@
-/* eslint-disable react/prop-types */
 import { MenuList } from "../components/MenuList";
 import MenuItem from "../components/MenuItem";
-import { Link } from "react-router-dom";
-import "../styles/Menu.css";
+import "../styles/Menu.css"
 
-function Menu({ updateCart }) {
+function Menu({ openModal }) {
   return (
     <div className="menu">
       <h1 className="menuTitle">Our Menu</h1>
@@ -12,20 +10,10 @@ function Menu({ updateCart }) {
         {MenuList.map((menuItem) => (
           <MenuItem
             key={menuItem.id}
-            id={menuItem.id}
-            image={menuItem.image}
-            name={menuItem.name}
-            price={menuItem.price}
-            description={menuItem.description}
-            updateCart={updateCart}
+            menuItem={menuItem}
+            openModal={openModal} // Pass openModal to MenuItem
           />
         ))}
-      </div>
-      {/* Checkout Button */}
-      <div className="cartActions">
-        <Link to="/cart">
-          <button className="proceedBtn">Proceed to Checkout</button>
-        </Link>
       </div>
     </div>
   );

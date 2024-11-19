@@ -1,32 +1,34 @@
-/* eslint-disable react/prop-types */
+import { useState } from "react";
 import "../styles/MenuItem.css";
-import { useCart } from "../Contexts/CartContext";
 
-function MenuItem({ id, image, name, description, price }) {
-  const { updateCart, cartItems } = useCart(); // Get cartItems from the context
+function MenuItem({ menuItem, openModal }) {
+  const [quantity, setQuantity] = useState(0);
 
-  // Find the current item's quantity in the cart
-  const currentItem = cartItems.find((item) => item.id === id);
-  const quantity = currentItem ? currentItem.quantity : 0;
+  const handleQuantityChange = (type) => {
+    if (type === "increment") {
+      setQuantity((prev) => prev + 1);
+      if (quantity === 0) {
+        openModal(menuItem); // Open modal when quantity increases from 0
+      }
+    } else {
+      setQuantity((prev) => Math.max(prev - 1, 0));
+    }
+  };
 
   return (
     <div className="menuItem">
       <div
         className="menuImage"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ backgroundImage: `url(${menuItem.image})` }}
       ></div>
       <div className="menuItemContent">
-        <h1 className="menuItemTitle">{name}</h1>
-        <p className="menuItemDescription">{description}</p>
-        <p className="menuItemPrice">€{price.toFixed(2)}</p>
+        <h2 className="menuItemTitle">{menuItem.name}</h2>
+        <p className="menuItemDescription">{menuItem.description}</p>
+        <p className="menuItemPrice">€{menuItem.price.toFixed(2)}</p>
         <div className="quantityControls">
-          <button onClick={() => updateCart({ id, name, description, price, image }, "decrement")}>
-            -
-          </button>
+          <button onClick={() => handleQuantityChange("decrement")}>-</button>
           <span className="quantity">{quantity}</span>
-          <button onClick={() => updateCart({ id, name, description, price, image }, "increment")}>
-            +
-          </button>
+          <button onClick={() => handleQuantityChange("increment")}>+</button>
         </div>
       </div>
     </div>
