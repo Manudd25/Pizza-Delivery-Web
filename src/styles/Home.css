@@ -84,12 +84,14 @@
     .headerContainer p {
       font-size: 30px;
       color: white;
+      text-align: center;
     }
   
     .headerContainer button {
       background-color: white;
       color: #121619;
       margin-bottom: 30px;
+      margin-right: 2rem;
     }
   
     .headerContainer button:hover {
