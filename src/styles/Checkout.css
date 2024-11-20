@@ -268,7 +268,7 @@
 
   .checkoutTitle {
     font-size: 24px;  /* Reduce the title size for mobile */
-    margin-top: 1rem;  /* Reduce the margin on top for better alignment */
+    margin-top: 2.5rem;  /* Reduce the margin on top for better alignment */
   }
 
   .checkoutContent {
