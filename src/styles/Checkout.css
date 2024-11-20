@@ -8,176 +8,227 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh; /* Full page height */
-  width: 100vw; /* Full page width */
+  height: 75vh;
+  width: 90vw;
   box-sizing: border-box;
 }
 
 .checkoutTitle {
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0;
+  color: #2c3e50;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 8rem;
 }
 
 /* Main Content */
 .checkoutContent {
   display: flex;
   flex-direction: row-reverse;
-  gap: 30px;
+  gap: 20px;
   justify-content: space-between;
   width: 100%;
-  max-width: 1500px;
+  max-width: 1200px;
   flex-grow: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Order Summary Section */
 .orderSummary {
   border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 40px;
-  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
   flex: 1;
   min-width: 300px;
   box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .orderSummary h2 {
   margin-bottom: 15px;
-  font-size: 26px;
+  font-size: 22px;
+  color: #34495e;
+  font-weight: bold;
 }
 
 .orderItems {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .orderItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid #eee;
-  border-radius: 5px;
-  background-color: #fff;
+  border-radius: 10px;
+  background-color: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+
+.orderItem:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .orderItemDetails h3 {
   margin: 0;
-  font-size: 20px;
-  color: #333;
+  font-size: 16px;
+  color: #2c3e50;
 }
 
 .orderItemDetails p {
-  margin: 8px 0 0;
-  font-size: 16px;
-  color: #555;
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #7f8c8d;
 }
 
 .orderItemTotal {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #2c3e50;
+  text-align: right;
 }
 
+/* Summary Totals */
 .orderTotal {
-  text-align: right;
-  margin-top: 15px;
-  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.orderTotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.totalLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.totalPrice {
+  font-size: 16px;
   font-weight: bold;
+  color: #2c3e50;
 }
 
 /* Delivery Details Section */
 .deliveryDetails {
   border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 40px;
+  border-radius: 12px;
+  padding: 20px;
   flex: 1;
   min-width: 300px;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
   box-sizing: border-box;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .deliveryDetails h2 {
   margin-bottom: 15px;
-  font-size: 26px;
+  font-size: 22px;
+  color: #34495e;
+  font-weight: bold;
 }
 
 .deliveryForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .formGroup label {
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 14px;
+  color: #2c3e50;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 
 .formGroup input {
-  padding: 15px;
-  font-size: 16px;
+  padding: 12px;
+  font-size: 14px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   width: 100%;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus {
+  border-color: #f39c12;
+  outline: none;
 }
 
 .formGroup input::placeholder {
   font-weight: normal;
-  color: #aaa;
+  color: #bbb;
 }
 
 /* Buttons */
 .checkoutActions {
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
 }
 
 .placeOrderButton,
 .goBackButton,
 .bacHomeBtn {
-  padding: 15px 30px;
-  font-size: 18px;
+  padding: 12px 40px;
+  font-size: 16px;
   font-weight: bold;
   border: none;
-  background-color: #f39c12;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
   color: white;
   border-radius: 8px;
+  margin: 5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .placeOrderButton:hover,
 .goBackButton:hover,
 .bacHomeBtn:hover {
-  background-color: #e67e22;
+  background: linear-gradient(135deg, #e67e22, #d35400);
   transform: scale(1.05);
 }
 
 .placeOrderButton:disabled {
-  background-color: #ccc;
+  background: #ccc;
   cursor: not-allowed;
 }
 
 .goBackButton {
-  margin-top: 2rem;
-  position: relative;
-  left: 0%;
-  margin: 2rem;
-
+  margin-top: 10px;
 }
 
 .bacHomeBtn {
-  margin-top: 2rem;
-  position: relative;
-}
-
-/* Empty Cart Message */
-.checkoutEmptyMessage {
-  font-size: 18px;
-  color: #666;
-  text-align: center;
+  margin-top: 10px;
 }
 
 /* Thank You Page */
@@ -188,41 +239,76 @@
   justify-content: center;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  color: #333;
-  min-height: 80vh; /* Full page height */
-  width: 100vw; /* Full page width */
+  color: #2c3e50;
+  min-height: 90vh;
+  width: 100vw;
 }
 
 .thankYouPage h1,
 .thankYouPage h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #34495e;
 }
 
 .thankYouImage {
-  width: 400px;
+  width: 250px;
   height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Styles */
+/* Responsive Styles */
 @media only screen and (max-width: 768px) {
+  .checkoutPage {
+    padding: 25px;
+    height: 120vh;
+  }
+
+  .checkoutTitle {
+    font-size: 24px;  /* Reduce the title size for mobile */
+    margin-top: 1rem;  /* Reduce the margin on top for better alignment */
+  }
+
   .checkoutContent {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+    padding: 10px;
   }
 
   .orderSummary,
   .deliveryDetails {
-    padding: 20px;
+    padding: 15px;
+    width: 100%;  /* Ensure they take full width */
+  }
+
+  .orderSummary {
+    margin-bottom: 15px; /* Add margin for better spacing on mobile */
   }
 
   .placeOrderButton,
   .goBackButton {
-    padding: 12px 20px;
-    font-size: 16px;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 20px; /* Adjust margins to ensure buttons fit well */
   }
 
   .thankYouImage {
-    width: 300px;
+    width: 200px;
+  }
+
+  .orderItem {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .orderItemDetails h3 {
+    font-size: 14px;  /* Adjust font size for better mobile readability */
+  }
+
+  .orderItemTotal {
+    font-size: 14px;
   }
 }

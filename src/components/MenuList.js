@@ -13,7 +13,7 @@ import Tomatoes from "../assets/tomatoes.jpg"
 import Mozzarella from "../assets/mozzarella.jpg"
 import Mushroom from "../assets/funghi.jpg"
 import Cheese from "../assets/4cheese.jpg"
-import Ham from "../assets/ham.png"
+/*import Ham from "../assets/ham.png"*/
 
 export const MenuList = [
   {
@@ -82,7 +82,7 @@ export const MenuList = [
     id: 5,
     name: "Rucola Pizza",
     image: Rucola,
-    price: 4.99,
+    price: 11.99,
     description: "ingredients: tomato sauce, mozzarella cheese, rucola",
     extras: [
       { name: "Cheese", price: 1.5 },
@@ -173,7 +173,7 @@ export const MenuList = [
     id: 11,
     name: "Spinach and Mozzarella Pizza",
     image: Spinach,
-    price: 4.99,
+    price: 11.99,
     description: "ingredients: tomato sauce, oregano, spinach, fresh mozzarella cheese",
     extras: [
       { name: "Cheese", price: 1.5 },
@@ -244,7 +244,7 @@ export const MenuList = [
       { name: "Mozzarella", price: 1.8 },
     ]
   },
-  {
+ /* {
     id: 16,
     name: "Ham Pizza",
     image: Ham,
@@ -258,5 +258,5 @@ export const MenuList = [
       { name: "Ham", price: 2.5 },
       { name: "Mozzarella", price: 1.8 },
     ]
-  },
+  },*/
 ];

@@ -11,17 +11,16 @@ function Checkout() {
 
   // Retrieve cart items from localStorage
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const deliveryFee = 4.99; // Fixed delivery fee
 
-  // Calculate the total price including extras for each item
+  // Calculate the total price including the delivery fee
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => {
+    const cartTotal = cartItems.reduce((total, item) => {
       const pizzaTotal = item.price * item.quantity;
-      const extrasTotal = item.selectedExtras.reduce(
-        (sum, extra) => sum + extra.price * item.quantity, // multiply each extra by quantity
-        0
-      );
-      return total + pizzaTotal + extrasTotal;
-    }, 0).toFixed(2); // Return the final total with two decimal places
+      return total + pizzaTotal;
+    }, 0);
+
+    return (cartTotal + deliveryFee).toFixed(2); // Return the final total with two decimal places
   };
 
   const handlePlaceOrder = () => {
@@ -71,7 +70,10 @@ function Checkout() {
                           <strong>Extras:</strong>{" "}
                           {item.selectedExtras.map((extra, idx) => (
                             <span key={idx}>
-                              {typeof extra === 'string' ? extra : extra.name} (+€{extra.price.toFixed(2)})
+                              {typeof extra === "string"
+                                ? extra
+                                : extra.name}{" "}
+                              (+€{extra.price.toFixed(2)})
                             </span>
                           ))}
                         </p>
@@ -84,7 +86,20 @@ function Checkout() {
                 ))}
               </div>
               <div className="orderTotal">
-                <h3>Total: €{calculateTotal()}</h3> {/* Show the total price */}
+                <div className="orderTotalRow">
+                  <h3 className="totalLabel">Subtotal:</h3>
+                  <p className="totalPrice">
+                    €{cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+                  </p>
+                </div>
+                <div className="orderTotalRow">
+                  <h3 className="totalLabel">Delivery Fee:</h3>
+                  <p className="totalPrice">€{deliveryFee.toFixed(2)}</p>
+                </div>
+                <div className="orderTotalRow">
+                  <h3 className="totalLabel">Total:</h3>
+                  <p className="totalPrice">€{calculateTotal()}</p>
+                </div>
               </div>
             </>
           ) : (

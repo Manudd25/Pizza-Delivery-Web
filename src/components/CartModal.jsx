@@ -11,20 +11,13 @@ const CartModal = ({ isOpen, closeModal }) => {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
   const calculateTotal = () => {
-    return cartItems.reduce(
-      (total, item) => {
+    return cartItems
+      .reduce((total, item) => {
         const pizzaTotal = item.price * item.quantity;
 
-        // Calculate extras total price
-        const extrasTotal = item.selectedExtras.reduce(
-          (sum, extra) => sum + (extra.price ? extra.price * item.quantity : 0),
-          0
-        );
-
-        return total + pizzaTotal + extrasTotal;
-      },
-      0
-    ).toFixed(2); // Return total with two decimal places
+        return total + pizzaTotal;
+      }, 0)
+      .toFixed(2); // Return total with two decimal places
   };
 
   const handleCheckout = () => {
@@ -35,7 +28,9 @@ const CartModal = ({ isOpen, closeModal }) => {
   return (
     <div className={`cartModalOverlay ${isOpen ? "open" : ""}`}>
       <div className="cartModalContent">
-        <button className="closeButton" onClick={closeModal}>✖</button>
+        <button className="closeButton" onClick={closeModal}>
+          ✖
+        </button>
         <h2>Your Order</h2>
 
         {cartItems.length > 0 ? (
@@ -59,7 +54,8 @@ const CartModal = ({ isOpen, closeModal }) => {
                       <ul>
                         {item.selectedExtras.map((extra, idx) => (
                           <li key={idx}>
-                            {extra.name} (+€{extra.price ? extra.price.toFixed(2) : 0})
+                            {extra.name} 
+                            (€{extra.price.toFixed(2)})
                           </li>
                         ))}
                       </ul>
@@ -68,10 +64,25 @@ const CartModal = ({ isOpen, closeModal }) => {
                 </div>
 
                 <div className="quantityControls">
-                  <button onClick={() => updateCart(item, "increment")} className="quantityButton">+</button>
+                  <button
+                    onClick={() => updateCart(item, "decrement")}
+                    className="quantityButton"
+                  >
+                    -
+                  </button>
+
                   <span className="quantityDisplay">{item.quantity}</span>
-                  <button onClick={() => updateCart(item, "decrement")} className="quantityButton">-</button>
-                  <button onClick={() => updateCart(item, "delete")} className="removeItemButton">
+                  <button
+                    onClick={() => updateCart(item, "increment")}
+                    className="quantityButton"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    onClick={() => updateCart(item, "delete")}
+                    className="removeItemButton"
+                  >
                     <FaTrash />
                   </button>
                 </div>
@@ -84,7 +95,9 @@ const CartModal = ({ isOpen, closeModal }) => {
 
         <div className="cartSummary">
           <h3>Total: €{calculateTotal()}</h3>
-          <button className="checkoutButton" onClick={handleCheckout}>Checkout</button>
+          <button className="checkoutButton" onClick={handleCheckout}>
+            Checkout
+          </button>
         </div>
       </div>
     </div>

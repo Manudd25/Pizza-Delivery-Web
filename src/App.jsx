@@ -37,16 +37,16 @@ function App() {
     <BrowserRouter>
       <Navbar openCartModal={openCartModal} />
       <Routes>
-      <Route
-          path="/"
-          element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/menu"
           element={<Menu openModal={openModal} />} // Pass openModal to Menu
         />
         <Route
           path="/cart"
-          element={<CartModal isOpen={isCartModalOpen} closeModal={closeCartModal} />}
+          element={
+            <CartModal isOpen={isCartModalOpen} closeModal={closeCartModal} />
+          }
         />
         <Route
           path="/checkout"
@@ -56,7 +56,12 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-      <PizzaModal pizza={selectedPizza} isOpen={isModalOpen} closeModal={closeModal} /> {/* Make sure to pass the correct state */}
+      <PizzaModal
+        pizza={selectedPizza}
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+      />{" "}
+      {/* Make sure to pass the correct state */}
     </BrowserRouter>
   );
 }

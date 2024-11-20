@@ -24,14 +24,14 @@
 /* Modal Content */
 .modalContent {
   background: #fff;
-  width: 450px;
-  max-height: 90%;
-  overflow-y: auto;
-  padding: 20px;
+  width: 370px; /* Reduced width for a smaller modal */
+  max-height: 87%; /* Slightly reduced height */
+  padding: 20px; /* Reduced padding */
   position: relative;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  animation: modalAppear 0.5s ease-out;
+  border-radius: 10px; 
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  animation: modalAppear 0.4s ease-out;
+  overflow-y: auto;
 }
 
 /* Close button */
@@ -41,7 +41,7 @@
   right: 10px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 20px; /* Reduced size */
   color: #333;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -53,7 +53,7 @@
 
 /* Title */
 .modalTitle {
-  font-size: 24px;
+  font-size: 22px; /* Reduced font size */
   font-weight: bold;
   color: #333;
   text-align: center;
@@ -63,18 +63,18 @@
 /* Pizza Image */
 .pizzaImageContainer {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced margin */
 }
 
 .pizzaImage {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 10px; /* Less rounded corners */
 }
 
 /* Description */
 .modalDescription {
-  font-size: 16px;
+  font-size: 16px; /* Reduced font size */
   color: #555;
   text-align: center;
   margin-bottom: 15px;
@@ -82,7 +82,7 @@
 
 /* Price */
 .modalPrice {
-  font-size: 18px;
+  font-size: 18px; /* Reduced font size */
   font-weight: bold;
   color: #f39c12;
   text-align: center;
@@ -91,7 +91,7 @@
 
 /* Extras */
 .extrasTitle {
-  font-size: 18px;
+  font-size: 18px; /* Reduced font size */
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
@@ -105,7 +105,7 @@
 }
 
 .extraItem {
-  font-size: 16px;
+  font-size: 16px; /* Reduced font size */
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -114,26 +114,26 @@
 .extraItem label {
   display: flex;
   align-items: center;
-  gap: 15px;  /* Space between checkbox and ingredient name */
+  gap: 10px; /* Reduced gap */
 }
 
 .extraItem span {
-  margin-left: 10px;  /* Space between checkbox and price */
+  margin-left: 10px;
 }
 
 .extraPrice {
-  font-size: 14px;
+  font-size: 14px; /* Reduced font size */
   color: #f39c12;
 }
 
 /* Custom Ingredient Input */
 .customIngredientInput {
   width: 100%;
-  padding: 10px;
+  padding: 8px; /* Reduced padding */
   margin-top: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 16px; /* Reduced font size */
   transition: border-color 0.3s ease;
   margin-bottom: 1rem;
 }
@@ -148,17 +148,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px; /* Space between the buttons */
-  margin-top: 20px; /* Space from other elements */
+  gap: 10px; /* Reduced gap */
+  margin-top: 15px; /* Reduced margin */
 }
 
 /* Button Style for + and - */
 .quantityButton {
-  background-color: #f39c12; /* Gold background for buttons */
+  background-color: #f39c12;
   color: white;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+  width: 35px; /* Reduced size */
+  height: 35px;
+  font-size: 18px; /* Reduced font size */
   font-weight: bold;
   border: none;
   border-radius: 50%;
@@ -170,23 +170,23 @@
 }
 
 .quantityButton:hover {
-  background-color: #e67e22; /* Darker gold on hover */
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  background-color: #e67e22;
+  transform: scale(1.1);
 }
 
 .quantityButton:disabled {
-  background-color: #dcdcdc; /* Disabled button with a light gray */
-  cursor: not-allowed; /* Prevent clicks when disabled */
+  background-color: #dcdcdc;
+  cursor: not-allowed;
 }
 
 /* Quantity number display */
 .quantityDisplay {
-  font-size: 18px;
+  font-size: 16px; /* Reduced font size */
   font-weight: bold;
-  color: #333; /* Dark text for better contrast */
-  margin: 10px; /* Add spacing on the sides */
-  width: 30px; /* Set a fixed width to align the buttons */
-  text-align: center; /* Center the quantity text */
+  color: #333;
+  margin: 5px;
+  width: 30px; /* Reduced width */
+  text-align: center;
 }
 
 /* Add to Cart Button */
@@ -194,14 +194,14 @@
   background-color: #f39c12;
   color: white;
   width: 100%;
-  padding: 15px 0;
+  padding: 15px 0; /* Reduced padding */
   border: none;
-  font-size: 18px;
+  font-size: 16px; /* Reduced font size */
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 30px;  /* Increased space from quantity buttons */
+  margin-top: 20px; /* Reduced margin */
 }
 
 .addToCartButton:hover {

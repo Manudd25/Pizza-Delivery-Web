@@ -1,9 +1,10 @@
+/* Base Styles */
 .menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  height: 135vh;
+  height: 180vh;
 }
 
 .menuTitle {
@@ -15,9 +16,9 @@
 
 .menuList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  justify-items: center; 
+  justify-items: center;
   width: 100%;
   padding: 0 20px;
 }
@@ -35,4 +36,44 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .menu {
+    padding: 20px 10px;
+    height: auto; /* Adjust height for better fit */
+  }
+
+  .menuTitle {
+    font-size: 32px; /* Reduce font size for smaller screens */
+  }
+
+  .menuList {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    gap: 20px;
+  }
+
+  .proceedBtn {
+    bottom: auto; /* Adjust button positioning for mobile */
+    margin-right: 0;
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuTitle {
+    font-size: 28px; /* Further reduce font size for very small screens */
+  }
+
+  .menuList {
+    padding: 0 10px; /* Reduce padding */
+  }
+
+  .proceedBtn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

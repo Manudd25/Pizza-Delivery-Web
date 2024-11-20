@@ -2,14 +2,14 @@
 .cartModalOverlay {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 600px; /* Increased the width for more space */
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Darker overlay for better contrast */
+  left: 0; /* Start from the left edge */
+  width: 100%; /* Cover the entire viewport width */
+  height: 100%; /* Cover the entire viewport height */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   display: flex;
-  justify-content: flex-start; /* Align the modal content to the left side */
-  align-items: center;
-  z-index: 1000;
+  justify-content: flex-end; /* Align modal to the right */
+  align-items: flex-end; /* Align modal content to the top */
+  z-index: 2000; /* Ensure it's above all other elements */
   opacity: 0;
   pointer-events: none;
   overflow: auto;
@@ -26,48 +26,48 @@
 .cartModalContent {
   background: #fff;
   width: 100%;
-  max-width: 600px; /* Increased width to 600px */
+  max-width: 480px; /* Reduced width */
   height: 100%;
-  max-height: 100vh; /* Ensure it doesn't exceed the viewport height */
-  padding: 30px;
+  max-height: 90vh; /* Reduced max height */
+  padding: 20px; /* Reduced padding */
   position: relative;
   color: #333;
-  transform: translateX(100%); /* Initially position the modal off-screen */
+  transform: translateX(100%);
   transition: transform 0.5s ease-in-out;
-  box-shadow: -4px 0px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 15px 0 0 15px; /* Rounded corners on the left side */
+  box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px 0 0 10px; /* Smaller rounded corners */
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Allow scrolling if content exceeds available height */
+  overflow-y: auto;
 }
 
 /* Slide-in effect for modal content */
 .cartModalOverlay.open .cartModalContent {
-  transform: translateX(0); /* Slide the modal in from the right */
+  transform: translateX(0);
 }
 
 /* Close button */
 .closeButton {
   position: absolute;
-  top: 20px;
-  right: 20px; /* Move the button to the right side */
+  top: 10px; /* Reduced spacing */
+  right: 10px;
   background: none;
   border: none;
-  font-size: 30px;
+  font-size: 20px; /* Reduced font size */
   color: #333;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .closeButton:hover {
-  color: #e74c3c; /* Red color on hover */
+  color: #e74c3c;
 }
 
 /* Title */
 .cartModalTitle {
-  font-size: 26px;
+  font-size: 20px; /* Reduced font size */
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced margin */
   color: #333;
   text-align: left;
 }
@@ -76,31 +76,31 @@
 .cartItemsContainer {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  margin-bottom: 30px;
-  overflow-y: auto; /* Ensure container scrolls if necessary */
-  flex-grow: 1; /* Allow the container to grow and use remaining space */
+  gap: 15px; /* Reduced gap */
+  margin-bottom: 20px; /* Reduced margin */
+  overflow-y: auto;
+  flex-grow: 1;
 }
 
 /* Single cart item */
 .cartItem {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px; /* Reduced gap */
   border-bottom: 1px solid #ddd;
-  padding-bottom: 20px;
-  padding-top: 15px;
-  font-size: 18px;
-  overflow: hidden; /* Prevent overflow of content */
+  padding-bottom: 15px; /* Reduced padding */
+  padding-top: 10px;
+  font-size: 16px; /* Reduced font size */
+  overflow: hidden;
 }
 
 /* Image for each item */
 .cartItemImage {
-  width: 90px; /* Increased size for images */
-  height: 90px;
+  width: 60px; /* Reduced size */
+  height: 60px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Cart item details */
@@ -110,21 +110,21 @@
 
 .cartItemName {
   font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 8px;
+  font-size: 16px; /* Reduced font size */
+  margin-bottom: 5px;
 }
 
 .cartItemPrice {
-  font-size: 20px;
+  font-size: 16px; /* Reduced font size */
   font-weight: bold;
   color: #f39c12;
 }
 
 .cartItemQuantity {
-  font-size: 17px;
+  font-size: 14px; /* Reduced font size */
   font-weight: bold;
   color: #333;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 /* Cart Summary section */
@@ -133,46 +133,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 10px 0; /* Reduced padding */
   border-top: 1px solid #ddd;
   background: #f9f9f9;
-  border-radius: 10px;
-  max-height: 120px; /* Prevent it from becoming too large */
-  flex-shrink: 0; /* Prevent shrinking */
+  border-radius: 8px;
+  max-height: 80px; /* Reduced max height */
+  flex-shrink: 0;
 }
 
 /* Checkout button */
 .checkoutButton {
   background: #f39c12;
   color: #fff;
-  padding: 12px 25px;
+  padding: 10px 20px; /* Reduced padding */
   border: none;
-  border-radius: 8px;
-  font-size: 18px;
+  border-radius: 6px; /* Smaller rounded corners */
+  font-size: 16px; /* Reduced font size */
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .checkoutButton:hover {
-  background: #e67e22; /* Slightly darker on hover */
+  background: #e67e22;
 }
 
 /* Quantity control buttons */
 .quantityControls {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-top: 12px;
+  gap: 3px; /* Reduced gap */
+  margin-top: 8px; /* Reduced margin */
 }
 
 /* Style for the individual quantity buttons */
 .quantityButton {
   background: #f39c12;
   color: #fff;
-  width: 35px;
-  height: 35px;
+  width: 30px; /* Reduced size */
+  height: 30px;
   border: none;
-  font-size: 20px;
+  font-size: 16px; /* Reduced font size */
   font-weight: bold;
   border-radius: 50%;
   display: flex;
@@ -182,13 +182,11 @@
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect for the quantity buttons */
 .quantityButton:hover {
   background-color: #e67e22;
-  transform: scale(1.1); /* Slight zoom effect */
+  transform: scale(1.1);
 }
 
-/* Disabled state for buttons (when quantity is 1 or lower) */
 .quantityButton:disabled {
   background-color: #dcdcdc;
   cursor: not-allowed;
@@ -196,10 +194,10 @@
 
 /* Quantity number display */
 .quantityNumber {
-  font-size: 17px;
+  font-size: 14px; /* Reduced font size */
   font-weight: bold;
   color: #333;
-  margin: 0 12px;
+  margin: 0 3px; /* Reduced margin */
 }
 
 /* Add the necessary styling for the trash icon button */
@@ -207,10 +205,10 @@
   background: none;
   border: none;
   color: #e74c3c;
-  font-size: 22px;
+  font-size: 18px; /* Reduced font size */
   cursor: pointer;
   transition: color 0.2s ease;
-  margin-left: 15px;
+  margin-left: 10px; /* Reduced margin */
 }
 
 .removeItemButton:hover {
@@ -219,15 +217,15 @@
 
 /* New style for displaying the extras */
 .cartItemExtras {
-  font-size: 15px;
+  font-size: 13px; /* Reduced font size */
   color: #555;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .cartItemExtras h5 {
-  font-size: 17px;
+  font-size: 14px; /* Reduced font size */
   font-weight: bold;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 
 .cartItemExtras ul {
@@ -237,12 +235,12 @@
 }
 
 .cartItemExtras li {
-  font-size: 15px;
+  font-size: 13px; /* Reduced font size */
   color: #555;
 }
 
 .cartItemExtras span {
-  font-size: 15px;
+  font-size: 13px; /* Reduced font size */
   color: #555;
   font-weight: normal;
 }
@@ -251,7 +249,7 @@
 @media (max-width: 768px) {
   .cartModalContent {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
   }
 
   .cartItem {
@@ -260,6 +258,6 @@
   }
 
   .cartItemDetails {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 }
