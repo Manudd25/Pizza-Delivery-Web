@@ -1,8 +1,12 @@
-# React + Vite
+# Pizza Delivery Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pizza Delivery Web App 🍕🚚
+A modern web application for ordering delicious pizzas with customizable toppings and extras. Features include:
 
-Currently, two official plugins are available:
+Interactive Menu: Browse various pizza options and select from a range of toppings and extras.
+Real-Time Cart: Add pizzas to your cart, adjust quantities, and view the total price instantly.
+Easy Checkout: Enter delivery details, place your order, and track it easily.
+Cart Modals: View your cart anytime and manage your pizza selections without leaving the page.
+Built with React, React Router, and Context API for state management. Perfect for pizza lovers looking for a quick and seamless online ordering experience!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Try it yourself: https://manudd25.github.io/Pizza-Delivery-Web/
