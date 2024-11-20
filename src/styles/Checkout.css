@@ -292,6 +292,7 @@
     padding: 10px 20px;
     font-size: 14px;
     margin: 20px; /* Adjust margins to ensure buttons fit well */
+    margin-bottom: 2.5rem;
   }
 
   .thankYouImage {

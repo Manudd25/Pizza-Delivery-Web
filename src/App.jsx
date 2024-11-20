@@ -37,7 +37,7 @@ function App() {
     <BrowserRouter basename="/Pizza-Delivery-Web">
       <Navbar openCartModal={openCartModal} />
       <Routes>
-      <Route path="/" element={<Navigate to="/Home" replace />} />
+        <Route path="/" element={<Navigate to="/Home" replace />} />
         <Route path="/Home" element={<Home />} />
         <Route
           path="/menu"
