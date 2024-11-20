@@ -66,6 +66,11 @@
 
 /* Responsive Adjustments */
 @media only screen and (max-width: 768px) {
+  
+  .aboutPage {
+    height: 155vh;
+  }
+  
   .banner {
     height: 250px;
   }
@@ -80,10 +85,6 @@
 
   .aboutContainer h2 {
     font-size: 22px;
-  }
-
-  .about-h2 {
-    display: none;
   }
 
   .aboutContainer p,
