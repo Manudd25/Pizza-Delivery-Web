@@ -82,6 +82,10 @@
     font-size: 22px;
   }
 
+  .about-h2 {
+    display: none;
+  }
+
   .aboutContainer p,
   .aboutContainer ul li {
     font-size: 16px;

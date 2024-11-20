@@ -32,7 +32,7 @@ function About() {
           mission is to deliver happiness, one slice at a time.
         </p>
 
-        <h2>Why Choose Us?</h2>
+        <h2 className="about-h2">Why Choose Us?</h2>
         <ul>
           <li>
             <strong>Fresh Ingredients:</strong> We source the best local produce
