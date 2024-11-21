@@ -14,7 +14,6 @@ const CartModal = ({ isOpen, closeModal }) => {
     return cartItems
       .reduce((total, item) => {
         const pizzaTotal = item.price * item.quantity;
-
         return total + pizzaTotal;
       }, 0)
       .toFixed(2); // Return total with two decimal places
@@ -45,7 +44,7 @@ const CartModal = ({ isOpen, closeModal }) => {
                 <div className="cartItemDetails">
                   <h4>{item.name}</h4>
                   <p className="cartItemPrice">
-                    €{(item.price * item.quantity).toFixed(2)}
+                    € {(item.price * item.quantity).toFixed(2)}
                   </p>
 
                   {item.selectedExtras && item.selectedExtras.length > 0 && (
@@ -55,7 +54,6 @@ const CartModal = ({ isOpen, closeModal }) => {
                         {item.selectedExtras.map((extra, idx) => (
                           <li key={idx}>
                             {extra.name} 
-                            (€{extra.price.toFixed(2)})
                           </li>
                         ))}
                       </ul>

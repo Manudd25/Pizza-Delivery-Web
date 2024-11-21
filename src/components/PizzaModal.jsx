@@ -14,8 +14,16 @@ function PizzaModal({ pizza, isOpen, closeModal }) {
   const [quantity, setQuantity] = useState(1); // Track quantity of pizzas
 
   // Get the extras for the current pizza from MenuList
-  const currentPizza = MenuList.find(item => item.id === pizza.id);
+  const currentPizza = MenuList.find((item) => item.id === pizza.id);
   const pizzaExtras = currentPizza ? currentPizza.extras : [];
+
+  // Helper function to compare two arrays of extras
+  const areExtrasEqual = (extras1, extras2) => {
+    if (extras1.length !== extras2.length) return false;
+    return extras1.every((extra, index) => {
+      return extra.name === extras2[index].name && extra.price === extras2[index].price;
+    });
+  };
 
   // Handle extra ingredient selection
   const handleExtraToggle = (extra) => {
@@ -28,42 +36,58 @@ function PizzaModal({ pizza, isOpen, closeModal }) {
 
   // Handle quantity change (increment or decrement)
   const handleQuantityChange = (type) => {
-    setQuantity((prev) => (type === "increment" ? prev + 1 : Math.max(prev - 1, 1)));
+    setQuantity((prev) =>
+      type === "increment" ? prev + 1 : Math.max(prev - 1, 1)
+    );
   };
 
   // Handle adding pizza to cart
   const handleAddToCart = () => {
-    // Map selected extras to the correct structure (objects)
-    const updatedExtras = extras.map((extra) => {
+    const extrasCost = extras.reduce((sum, extra) => {
       const extraItem = pizzaExtras.find((item) => item.name === extra);
-      return extraItem || { name: extra, price: 0 }; // Ensure the extra has a price
-    });
+      return extraItem ? sum + extraItem.price : sum;
+    }, 0);
 
-    // Create the pizza object with the selected extras
+    // Create the pizza object with the correct price (per unit)
     const updatedPizza = {
       ...pizza,
       quantity,
-      selectedExtras: updatedExtras, // Include selected extras
-      price: calculateTotal() // Recalculate price based on extras
+      selectedExtras: extras.map((extra) => {
+        const extraItem = pizzaExtras.find((item) => item.name === extra);
+        return extraItem || { name: extra, price: 0 };
+      }),
+      price: pizza.price + extrasCost, // Single pizza price including extras
     };
 
-    // Retrieve the current cart from localStorage
     const currentCart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    currentCart.push(updatedPizza);
+
+    // Check if the pizza with the same extras already exists in the cart
+    const existingPizzaIndex = currentCart.findIndex(
+      (item) =>
+        item.id === updatedPizza.id && areExtrasEqual(item.selectedExtras, updatedPizza.selectedExtras)
+    );
+
+    if (existingPizzaIndex !== -1) {
+      // If the pizza exists, update its quantity
+      currentCart[existingPizzaIndex].quantity += quantity;
+    } else {
+      // If the pizza does not exist, add it as a new item
+      currentCart.push(updatedPizza);
+    }
+
     localStorage.setItem("cartItems", JSON.stringify(currentCart));
 
     addToCart(updatedPizza);
     closeModal();
   };
 
-  // Calculate the total price (pizza price + extras)
+  // Calculate the total price (pizza price + extras) for display
   const calculateTotal = () => {
     const extrasCost = extras.reduce((sum, extra) => {
       const extraItem = pizzaExtras.find((item) => item.name === extra);
-      return extraItem ? sum + extraItem.price : sum; // Sum price of extras
+      return extraItem ? sum + extraItem.price : sum;
     }, 0);
 
-    // Total price of pizza (base price) + extras price * quantity
     return (pizza.price + extrasCost) * quantity;
   };
 

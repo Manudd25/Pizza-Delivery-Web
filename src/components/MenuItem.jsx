@@ -8,9 +8,7 @@ function MenuItem({ menuItem, openModal }) {
   const handleQuantityChange = (type) => {
     if (type === "increment") {
       setQuantity((prev) => prev + 1);
-      if (quantity === 0) {
-        openModal(menuItem); // Open modal when quantity increases from 0
-      }
+      openModal(menuItem); // Open modal every time the quantity is incremented
     } else {
       setQuantity((prev) => Math.max(prev - 1, 0));
     }
