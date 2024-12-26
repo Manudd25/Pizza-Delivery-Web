@@ -23,12 +23,12 @@ export const MenuList = [
     price: 10.99,
     description: "ingredients: tomato sauce, salami, mozzarella cheese",
     extras: [
-      { name: "Cheese", price: 1.5 },
+      { name: "Extra Cheese", price: 1.5 },
       { name: "Salami", price: 2.0 },
       { name: "Mushrooms", price: 1.2 },
       { name: "Olives", price: 1.0 },
       { name: "Ham", price: 2.5 },
-      { name: "Mozzarella", price: 1.8 },
+      { name: "Rucola", price: 1.5 },
     ]
   },
   { 

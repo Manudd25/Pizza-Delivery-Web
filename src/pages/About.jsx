@@ -15,8 +15,8 @@ function About() {
 
       {/* Text Content Section */}
       <div className="aboutContainer">
-        <h1>Welcome to Slice & Dice</h1>
-        <p>
+        <h1 className="aboutTitle">Welcome to Slice & Dice</h1>
+        <p className="aboutDescription">
           At <strong>Slice & Dice</strong>, we believe that every slice tells a
           story. What began as a small, family-run pizzeria has grown into a
           beloved pizza delivery service serving the heart and soul of our
@@ -24,16 +24,16 @@ function About() {
           that’s fresh, flavorful, and filled with love.
         </p>
 
-        <h2>Our Mission</h2>
-        <p>
+        <h2 className="aboutMission">Our Mission</h2>
+        <p className="aboutDescription">
           To bring people together over a delicious pizza. Whether you are
           celebrating a milestone, enjoying a cozy night in, or just craving
           something cheesy, we are here to make your moments memorable. Our
           mission is to deliver happiness, one slice at a time.
         </p>
 
-        <h2 className="about-h2">Why Choose Us?</h2>
-        <ul>
+        <h2 className="aboutWhyChooseUs">Why Choose Us?</h2>
+        <ul className="aboutList">
           <li>
             <strong>Fresh Ingredients:</strong> We source the best local produce
             and the finest imported toppings to ensure every bite bursts with

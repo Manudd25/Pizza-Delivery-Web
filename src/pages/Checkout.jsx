@@ -13,6 +13,16 @@ function Checkout() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const deliveryFee = 4.99; // Fixed delivery fee
 
+  // State to track delivery schedule and payment method
+  const [deliverySchedule, setDeliverySchedule] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("");
+
+  // State to track delivery time and payment details
+  const [deliveryTime, setDeliveryTime] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
+  const [cardCVC, setCardCVC] = useState("");
+
   // Calculate the total price including the delivery fee
   const calculateTotal = () => {
     const cartTotal = cartItems.reduce((total, item) => {
@@ -73,7 +83,7 @@ function Checkout() {
                               {typeof extra === "string"
                                 ? extra
                                 : extra.name}{" "}
-                              (+€{extra.price.toFixed(2)})
+                              
                             </span>
                           ))}
                         </p>
@@ -138,6 +148,108 @@ function Checkout() {
                 required
               />
             </div>
+
+            {/* Delivery Schedule */}
+            <div className="formGroup">
+              <label htmlFor="schedule">Delivery Schedule:</label>
+              <select
+                id="schedule"
+                value={deliverySchedule}
+                onChange={(e) => {
+                  setDeliverySchedule(e.target.value);
+                  if (e.target.value !== "Later") {
+                    setDeliveryTime(""); // Reset delivery time if not "Later"
+                  }
+                }}
+                required
+              >
+                <option value="">Select a delivery time</option>
+                <option value="ASAP">ASAP</option>
+                <option value="Later">Later</option>
+              </select>
+            </div>
+
+            {/* Delivery Time Field */}
+            {deliverySchedule === "Later" && (
+              <div className="formGroup">
+                <label htmlFor="deliveryTime">Select Delivery Time:</label>
+                <input
+                  type="time"
+                  id="deliveryTime"
+                  value={deliveryTime}
+                  onChange={(e) => setDeliveryTime(e.target.value)}
+                  required
+                />
+              </div>
+            )}
+
+            {/* Payment Method */}
+            <div className="formGroup">
+              <label htmlFor="payment">Payment Method:</label>
+              <select
+                id="payment"
+                value={paymentMethod}
+                onChange={(e) => {
+                  setPaymentMethod(e.target.value);
+                  // Reset card details if payment method changes
+                  if (e.target.value !== "Credit Card") {
+                    setCardNumber("");
+                    setCardExpiry("");
+                    setCardCVC("");
+                  }
+                }}
+                required
+              >
+                <option value="">Select a payment method</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="PayPal">PayPal</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+              </select>
+            </div>
+
+            {/* PayPal Redirect Message */}
+            {paymentMethod === "PayPal" && (
+              <p className="paypalRedirectMessage">
+                You will be redirected to the PayPal website to complete your payment.
+              </p>
+            )}
+
+            {/* Credit Card Details */}
+            {paymentMethod === "Credit Card" && (
+              <>
+                <div className="formGroup">
+                  <label htmlFor="cardNumber">Card Number:</label>
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    value={cardNumber}
+                    onChange={(e) => setCardNumber(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="formGroup">
+                  <label htmlFor="cardExpiry">Expiry Date:</label>
+                  <input
+                    type="text"
+                    id="cardExpiry"
+                    placeholder="MM/YY"
+                    value={cardExpiry}
+                    onChange={(e) => setCardExpiry(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="formGroup">
+                  <label htmlFor="cardCVC">CVC:</label>
+                  <input
+                    type="text"
+                    id="cardCVC"
+                    value={cardCVC}
+                    onChange={(e) => setCardCVC(e.target.value)}
+                    required
+                  />
+                </div>
+              </>
+            )}
           </form>
         </div>
       </div>

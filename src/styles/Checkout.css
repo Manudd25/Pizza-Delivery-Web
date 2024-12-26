@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75vh;
+  height: auto;
   width: 90vw;
   box-sizing: border-box;
 }
@@ -21,50 +21,34 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-top: 8rem;
 }
 
 /* Main Content */
 .checkoutContent {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   gap: 20px;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px;
-  flex-grow: 1;
+  max-width: 600px;
   padding: 20px;
   box-sizing: border-box;
   background: #fff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Order Summary Section */
-.orderSummary {
+.orderSummary, .deliveryDetails {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 20px;
   background: linear-gradient(135deg, #ffffff, #f9f9f9);
-  flex: 1;
-  min-width: 300px;
   box-sizing: border-box;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.orderSummary h2 {
+.orderSummary h2, .deliveryDetails h2 {
   margin-bottom: 15px;
   font-size: 22px;
   color: #34495e;
@@ -139,28 +123,14 @@
 }
 
 /* Delivery Details Section */
-.deliveryDetails {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  flex: 1;
-  min-width: 300px;
-  background: linear-gradient(135deg, #ffffff, #f9f9f9);
-  box-sizing: border-box;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.deliveryDetails h2 {
-  margin-bottom: 15px;
-  font-size: 22px;
-  color: #34495e;
-  font-weight: bold;
-}
-
 .deliveryForm {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
 }
 
 .formGroup label {
@@ -170,7 +140,7 @@
   font-weight: 500;
 }
 
-.formGroup input {
+.formGroup input, .formGroup select {
   padding: 12px;
   font-size: 14px;
   border: 1px solid #ddd;
@@ -180,7 +150,7 @@
   transition: border-color 0.3s ease;
 }
 
-.formGroup input:focus {
+.formGroup input:focus, .formGroup select:focus {
   border-color: #f39c12;
   outline: none;
 }
@@ -192,8 +162,11 @@
 
 /* Buttons */
 .checkoutActions {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
-  text-align: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .placeOrderButton,
@@ -206,7 +179,7 @@
   background: linear-gradient(135deg, #f39c12, #e67e22);
   color: white;
   border-radius: 8px;
-  margin: 5rem;
+  margin: 5px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -223,15 +196,6 @@
   cursor: not-allowed;
 }
 
-.goBackButton {
-  margin-top: 10px;
-}
-
-.bacHomeBtn {
-  margin-top: 10px;
-}
-
-/* Thank You Page */
 /* Thank You Page */
 .thankYouPage {
   display: flex;
@@ -255,7 +219,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4); /* Subtle text shadow */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .thankYouPage h2 {
@@ -267,7 +231,7 @@
 
 .thankYouPage p {
   font-size: 16px;
-  color: #fdf2e9; /* Lighter tone for paragraph text */
+  color: #fdf2e9;
   max-width: 600px;
   line-height: 1.5;
   margin: 10px 0;
@@ -283,12 +247,12 @@
 
 .thankYouImage:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Enhanced hover effect */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .thankYouButton {
-  background-color: #ffffff; /* White button for contrast */
-  color: #e67e22; /* Matches the gradient */
+  background-color: #ffffff;
+  color: #e67e22;
   border: 2px solid #e67e22;
   padding: 12px 20px;
   border-radius: 8px;
@@ -302,7 +266,7 @@
 
 .thankYouButton:hover {
   background-color: #e67e22;
-  color: #ffffff; /* Invert colors on hover */
+  color: #ffffff;
   transform: scale(1.05);
 }
 
@@ -318,42 +282,33 @@
   }
 }
 
-
-/* Responsive Styles */
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
   .checkoutPage {
     padding: 25px;
-    height: 120vh;
+    height: auto;
   }
 
   .checkoutTitle {
-    font-size: 24px;  /* Reduce the title size for mobile */
-    margin-top: 1rem;  /* Reduce the margin on top for better alignment */
+    font-size: 24px;
+    margin-top: 1rem;
   }
 
   .checkoutContent {
-    flex-direction: column;
-    gap: 15px;
     padding: 10px;
   }
 
   .orderSummary,
   .deliveryDetails {
     padding: 15px;
-    width: 100%;  /* Ensure they take full width */
-  }
-
-  .orderSummary {
-    margin-bottom: 15px; /* Add margin for better spacing on mobile */
+    width: 100%;
   }
 
   .placeOrderButton,
   .goBackButton {
     padding: 10px 20px;
     font-size: 14px;
-    margin: 20px; 
-    margin-bottom: 2.5rem;
+    margin: 10px;
   }
 
   .thankYouImage {
@@ -367,10 +322,17 @@
   }
 
   .orderItemDetails h3 {
-    font-size: 14px;  /* Adjust font size for better mobile readability */
+    font-size: 14px;
   }
 
   .orderItemTotal {
     font-size: 14px;
   }
+}
+
+.paypalRedirectMessage {
+  color: #e67e22; /* Change color as needed */
+  font-size: 14px;
+  margin-top: 5px; /* Space above the message */
+  margin-bottom: 15px; /* Space below the message */
 }
