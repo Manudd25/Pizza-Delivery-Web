@@ -28,7 +28,7 @@ export const MenuList = [
       { name: "Mushrooms", price: 1.2 },
       { name: "Olives", price: 1.0 },
       { name: "Ham", price: 2.5 },
-      { name: "Rucola", price: 1.5 },
+      { name: "Rocket", price: 1.5 },
     ]
   },
   { 
